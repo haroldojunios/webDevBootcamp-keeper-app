@@ -12,7 +12,13 @@ function App() {
       <CreateArea
         onCreate={noteData => { setNotes(prevNotes => [...prevNotes, noteData]) }}
       />
-      <Note key={1} title="Note title" content="Note content" />
+      {notes.map((note, i) =>
+        <Note
+          key={i}
+          title={note.title}
+          content={note.content}
+        />
+      )}
       <Footer />
     </div>
   );
