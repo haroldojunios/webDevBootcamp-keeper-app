@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CreateArea() {
+function CreateArea(props) {
   const [noteData, setNoteData] = useState({
     title: "",
     content: ""
@@ -23,7 +23,9 @@ function CreateArea() {
           }}
           value={noteData.content}
         />
-        <button>Add</button>
+        <button
+          onClick={event => { props.onCreate(noteData); event.preventDefault() }}
+        >Add</button>
       </form>
     </div>
   );
